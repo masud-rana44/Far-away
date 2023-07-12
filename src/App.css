@@ -95,6 +95,21 @@
   width: 100%;
   flex: 1;
   background-color: #422006;
+  padding: 20px 300px;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+.item-lists {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 80px;
+}
+
+.item {
 }
 
 .footer {
