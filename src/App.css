@@ -96,20 +96,20 @@
   flex: 1;
   background-color: #422006;
   padding: 20px 300px;
-  display: flex;
-  justify-content: center;
+
   color: #fff;
 }
 
 .item-lists {
   list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 80px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 60px;
+  row-gap: 40px;
 }
 
-.item {
+.active {
+  text-decoration: line-through;
 }
 
 .footer {

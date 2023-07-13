@@ -4,8 +4,8 @@ function PackingList({ items }) {
   return (
     <div className="packing-container">
       <ul className="item-lists">
-        {items.map((item, index) => (
-          <Item key={index} {...item} />
+        {items.map((item) => (
+          <Item key={item.id} {...item} />
         ))}
       </ul>
     </div>

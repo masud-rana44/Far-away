@@ -1,25 +1,27 @@
 import { useState } from "react";
 
 function Form({ setLists }) {
-  const [item, setItem] = useState("");
-  const [quantity, setQuantity] = useState("1");
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState(1);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (item) {
-      // added to the lists
-      setLists((prevLists) => [
-        ...prevLists,
-        {
-          name: item,
-          quantity,
-        },
-      ]);
+    if (!description) return;
 
-      setItem("");
-      setQuantity(1);
-    }
+    // added to the lists
+    setLists((prevLists) => [
+      ...prevLists,
+      {
+        id: Date.now(),
+        description,
+        quantity,
+        packed: false,
+      },
+    ]);
+
+    setDescription("");
+    setQuantity(1);
   };
 
   return (
@@ -32,21 +34,21 @@ function Form({ setLists }) {
           value={quantity}
           name="item"
           id="item"
-          onChange={(e) => setQuantity(e.target.value)}
+          onChange={(e) => setQuantity(+e.target.value)}
         >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+          <option value={6}>6</option>
         </select>
 
         <input
-          value={item}
+          value={description}
           type="text"
           placeholder="Item..."
-          onChange={(e) => setItem(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <button type="submit">ADD</button>
       </form>

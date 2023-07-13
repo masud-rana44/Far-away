@@ -1,24 +1,21 @@
 import { useState } from "react";
 
-function Item({ name, quantity }) {
-  const [isPacked, setIsPacked] = useState(false);
-
-  const handleChange = (e) => {
-    setIsPacked(() => !e.target.value);
-  };
+function Item({ description, quantity, packed }) {
+  const [isChecked, setIsChecked] = useState(packed);
 
   return (
     <li className="item">
       <label htmlFor="check">
         <input
-          value={isPacked}
-          checked={isPacked}
+          value={isChecked}
+          checked={isChecked}
           type="checkbox"
-          id="check"
-          onChange={handleChange}
+          onChange={(e) => {
+            setIsChecked(e.target.checked);
+          }}
         />
         {"  "}
-        {`${quantity} of ${name}`}
+        <span className={isChecked ? "active" : ""}>{`${quantity} ${description}`}</span>
       </label>
     </li>
   );
