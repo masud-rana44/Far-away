@@ -1,9 +1,5 @@
 function Logo() {
-  return (
-    <header className="header">
-      <h1 className="logo">⛲ Far Away 💼</h1>
-    </header>
-  );
+  return <h1>🏝️ Far Away 🧳</h1>;
 }
 
 export default Logo;

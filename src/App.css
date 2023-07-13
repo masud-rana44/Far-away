@@ -1,128 +1,133 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@500;700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Rubik", sans-serif;
 }
 
-.container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+html {
+  font-size: 62.5%;
 }
 
-.header {
-  background-color: #fd7e14;
-  padding: 30px 50px;
+body {
+  font-size: 2.4rem;
+  font-family: sans-serif;
+  color: #5a3e2b;
+  font-family: "Quicksand";
+  font-weight: 500;
+}
+
+.app {
   width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+h1 {
+  text-align: center;
+  background-color: #f4a226;
+  font-family: "Monoton";
+  font-size: 6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  word-spacing: 30px;
+  letter-spacing: -5px;
+  padding: 1.8rem 0;
+}
+
+.add-form {
+  background-color: #e5771f;
+  padding: 2rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.8rem;
 }
 
-.logo {
-  font-family: "Rubik Glitch", cursive;
-  font-size: 40px;
+h3 {
+  margin-right: 1.4rem;
+  font-size: 2.2rem;
 }
 
-.form-container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 20px 30px;
-  background-color: #d9480f;
-}
-
-.question {
-  font-size: 20px;
-  color: #292524;
-}
-
-.form {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.form select {
-  width: 80px;
-  padding: 8px 16px;
+button,
+select,
+input {
+  background-color: #ffebb3;
+  color: #5a3e2b;
+  font-family: inherit;
   border: none;
-  outline: none;
-  border-radius: 30px;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.form select option {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.form input {
-  min-width: 280px;
-  padding: 8px 16px;
-  font-size: 16px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  border-radius: 30px;
-}
-
-.form input::placeholder {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.form button {
-  padding: 8px 16px;
-  border: none;
-  outline: none;
-  border-radius: 30px;
-  background-color: #51cf66;
-  font-size: 16px;
-  font-weight: 600;
+  border-radius: 10rem;
+  padding: 1rem 3rem;
+  font-weight: 700;
+  font-size: 1.6rem;
   cursor: pointer;
 }
 
-.packing-container {
-  width: 100%;
+.add-form button {
+  text-transform: uppercase;
+  background-color: #76c7ad;
+}
+
+.list {
+  background-color: #5a3e2b;
+  color: #ffebb3;
+  padding: 3.6rem 0;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.actions button,
+.list select {
+  text-transform: uppercase;
+  padding: 0.6rem 2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0.7rem;
+}
+
+.list ul {
   flex: 1;
-  background-color: #422006;
-  padding: 20px 300px;
-  display: flex;
-  justify-content: center;
-  color: #fff;
-}
-
-.item-lists {
   list-style: none;
-  display: flex;
+  width: 80%;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 80px;
+  align-content: start;
 }
 
-.item {
-}
-
-.footer {
+.list li {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: #51cf66;
-  padding: 20px 30px;
-  width: 100%;
+  gap: 1.2rem;
 }
 
-.footer p {
-  font-size: 18px;
-  font-weight: 500;
-  font-style: italic;
+input[type="checkbox"] {
+  height: 1.8rem;
+  width: 1.8rem;
+  accent-color: #e5771f;
+}
+
+.list li button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  padding: 0.8rem;
+  transform: translateY(2px);
+}
+
+.stats {
+  background-color: #76c7ad;
+  text-align: center;
+  font-weight: 700;
+  padding: 3.2rem 0;
 }

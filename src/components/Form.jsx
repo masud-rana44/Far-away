@@ -1,56 +1,44 @@
 import { useState } from "react";
 
-function Form({ setLists }) {
-  const [item, setItem] = useState("");
+function Form({ onAddItems }) {
+  const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("1");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (item) {
-      // added to the lists
-      setLists((prevLists) => [
-        ...prevLists,
-        {
-          name: item,
-          quantity,
-        },
-      ]);
+    if (!description) return;
 
-      setItem("");
-      setQuantity(1);
-    }
+    const newItem = { description, quantity, packed: false, id: Date.now() };
+
+    onAddItems(newItem);
+
+    setDescription("");
+    setQuantity(1);
   };
 
   return (
-    <div className="form-container">
-      <p className="question">
-        <strong>What do you need for your 😍 trip?</strong>
-      </p>
-      <form className="form" onSubmit={handleSubmit}>
-        <select
-          value={quantity}
-          name="item"
-          id="item"
-          onChange={(e) => setQuantity(e.target.value)}
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-        </select>
+    <form className="add-form" onSubmit={handleSubmit}>
+      <h3>What do you need for your 😍 trip</h3>
+      <select
+        value={quantity}
+        onChange={(e) => setQuantity(Number(e.target.value))}
+      >
+        {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+          <option key={num} value={num}>
+            {num}
+          </option>
+        ))}
+      </select>
 
-        <input
-          value={item}
-          type="text"
-          placeholder="Item..."
-          onChange={(e) => setItem(e.target.value)}
-        />
-        <button type="submit">ADD</button>
-      </form>
-    </div>
+      <input
+        type="text"
+        placeholder="Item..."
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <button>Add</button>
+    </form>
   );
 }
 

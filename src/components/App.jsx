@@ -6,14 +6,17 @@ import "../App.css";
 import { useState } from "react";
 
 function App() {
-  const [lists, setLists] = useState([]);
-  console.log(lists);
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(item) {
+    setItems((items) => [...items, item]);
+  }
 
   return (
-    <div className="container">
+    <div className="app">
       <Logo />
-      <Form setLists={setLists} />
-      <PackingList items={lists} />
+      <Form onAddItems={handleAddItems} />
+      <PackingList items={items} />
       <Status />
     </div>
   );
