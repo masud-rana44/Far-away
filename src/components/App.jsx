@@ -16,12 +16,20 @@ function App() {
     setItems((items) => items.filter((item) => item.id !== id));
   }
 
-  function handleUpdateItem(id) {
+  function handleToggleItem(id) {
     setItems((items) =>
       items.map((item) =>
         item.id === id ? { ...item, packed: !item.packed } : item
       )
     );
+  }
+
+  function handleClearLists() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all items?"
+    );
+
+    if (confirmed) setItems([]);
   }
 
   return (
@@ -31,9 +39,10 @@ function App() {
       <PackingList
         items={items}
         onDeleteItem={handleDeleteItem}
-        onUpdateItem={handleUpdateItem}
+        onToggleItem={handleToggleItem}
+        onClearLists={handleClearLists}
       />
-      <Status />
+      <Status items={items} />
     </div>
   );
 }
